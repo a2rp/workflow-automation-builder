@@ -1,0 +1,17 @@
+.notFound {
+    display: grid;
+    min-height: calc(100vh - 230px);
+    align-content: center;
+    justify-items: center;
+    padding: 50px 20px;
+    text-align: center;
+
+    .mark { display: grid; width: 60px; height: 60px; place-items: center; border-radius: 18px; background: #eaf0e3; color: #557b2d; }
+    .mark svg { width: 27px; height: 27px; }
+    > p { margin-top: 19px; color: #758078; font-size: 14px; font-weight: 650; }
+    h1 { max-width: 560px; margin-top: 7px; color: #24312a; font-size: clamp(27px, 4vw, 38px); font-weight: 770; letter-spacing: -0.05em; line-height: 1.15; }
+    .description { margin-top: 9px; color: #748078; font-size: 15px; }
+    a { display: inline-flex; min-height: 43px; align-items: center; gap: 8px; margin-top: 22px; padding: 0 14px; border: 1px solid #17201d; border-radius: 10px; background: #17201d; color: #fff; font-size: 14px; font-weight: 650; }
+    a:hover { border-color: #35453d; box-shadow: 0 5px 14px rgb(23 32 29 / 16%); }
+    a svg { width: 15px; height: 15px; color: #c7f36b; }
+}
