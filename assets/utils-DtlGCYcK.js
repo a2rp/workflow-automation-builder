@@ -1,0 +1,2 @@
+var e=(e,t)=>e.find(e=>e.id===t)?.name??`Deleted workflow`,t=(e,t)=>{if(!e.length)return!1;let n=e=>`"`+String(e??``).replaceAll(`"`,`""`)+`"`,r=e.map(e=>e.map(n).join(`,`)).join(`\r
+`),i=URL.createObjectURL(new Blob([r],{type:`text/csv;charset=utf-8`})),a=document.createElement(`a`);return a.href=i,a.download=t,a.click(),URL.revokeObjectURL(i),!0};export{e as n,t};
