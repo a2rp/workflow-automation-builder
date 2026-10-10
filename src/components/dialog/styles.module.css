@@ -1,0 +1,128 @@
+.backdrop {
+    position: fixed;
+    z-index: 90;
+    inset: 0;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    overflow-y: auto;
+    padding: 24px;
+    background: rgb(20 27 24 / 52%);
+    backdrop-filter: blur(6px);
+    animation: fadeIn 130ms ease-out both;
+
+    .dialog {
+        width: min(100%, 540px);
+        max-height: min(780px, calc(100vh - 48px));
+        overflow: auto;
+        border: 1px solid #e0e4dd;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0 30px 90px rgb(15 23 19 / 28%);
+        animation: dialogIn 160ms ease-out both;
+    }
+
+    .header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px 26px 18px;
+        border-bottom: 1px solid #ecefea;
+
+        h2 {
+            color: #19231f;
+            font-size: 21px;
+            font-weight: 750;
+            letter-spacing: -0.035em;
+        }
+
+        p {
+            margin-top: 5px;
+            color: #68746d;
+            font-size: 14px;
+        }
+    }
+
+    .close {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 1px solid #e0e4dd;
+        border-radius: 10px;
+        background: #fff;
+        color: #55615a;
+
+        &:hover {
+            border-color: #b7c1b8;
+            box-shadow: 0 4px 12px rgb(23 32 29 / 8%);
+        }
+
+        svg { width: 18px; height: 18px; }
+    }
+
+    .body {
+        padding: 22px 26px 24px;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        padding: 0 26px 24px;
+    }
+
+    .secondary,
+    .primary {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 16px;
+        border: 1px solid #dfe4dc;
+        border-radius: 10px;
+        background: #fff;
+        color: #344139;
+        font-size: 14px;
+        font-weight: 650;
+
+        &:hover {
+            border-color: #a8b5aa;
+            box-shadow: 0 4px 12px rgb(23 32 29 / 9%);
+        }
+    }
+
+    .primary {
+        border-color: #17201d;
+        background: #17201d;
+        color: #fff;
+
+        &:hover {
+            border-color: #35453d;
+            background: #26362e;
+        }
+
+        &:disabled { opacity: 0.5; }
+    }
+
+    .danger {
+        border-color: #b14b45;
+        background: #b14b45;
+
+        &:hover { border-color: #913a35; background: #913a35; }
+    }
+
+    @media (max-width: 560px) {
+        padding: 12px;
+
+        .header { padding: 20px 18px 16px; }
+        .body { padding: 20px 18px; }
+        .footer { padding: 0 18px 20px; }
+    }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes dialogIn { from { opacity: 0; transform: translateY(8px) scale(0.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
