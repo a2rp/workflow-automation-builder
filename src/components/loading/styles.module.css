@@ -1,0 +1,27 @@
+.loading {
+    display: grid;
+    min-height: 42vh;
+    place-items: center;
+
+    .spinner {
+        width: 48px;
+        aspect-ratio: 1;
+        border: 3px solid #dce2d8;
+        border-top-color: #17201d;
+        border-right-color: #a7d94f;
+        border-radius: 50%;
+        animation: spin 800ms linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .spinner {
+            animation-duration: 1800ms;
+        }
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
