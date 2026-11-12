@@ -13,13 +13,22 @@ export const formatTime = (value) =>
 
 export const downloadCsv = (rows, filename) => {
     if (!rows.length) return false;
-    const escapeValue = (value) => '"' + String(value ?? "").replaceAll('"', '""') + '"';
-    const content = rows.map((row) => row.map(escapeValue).join(",")).join("\r\n");
+    const escapeValue = (value) => {
+        const text = String(value ?? "");
+        const safeText = /^[\s\uFEFF]*[=+\-@]/u.test(text)
+            ? `'${text}`
+            : text;
+
+        return `"${safeText.replaceAll('"', '""')}"`;
+    };
+    const content =
+        "\uFEFF" +
+        rows.map((row) => row.map(escapeValue).join(",")).join("\r\n");
     const url = URL.createObjectURL(new Blob([content], { type: "text/csv;charset=utf-8" }));
     const link = document.createElement("a");
     link.href = url;
     link.download = filename;
     link.click();
-    URL.revokeObjectURL(url);
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     return true;
 };
